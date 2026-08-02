@@ -1,5 +1,47 @@
 import pprint
-#list of changes
+
+#########################
+  #  Functions #
+#########################
+
+#displays all the changes in a change list.
+def display_all_changes(changes_list):
+    for change in changes_list:
+        print(change)
+
+
+def display_application_names(change_list):
+    for change in change_list:
+        print(change["application"])
+
+def display_changes_by_owner(change_list,owner):
+    for change in change_list:
+        if change["owner"] == owner:
+            print(change)
+
+#Display change by Risk.
+def display_changes_by_risk(change_list,risk):
+    for change in change_list:
+        if change["risk"] == risk:
+            print(change)
+
+
+#Display count of changes by Status.
+
+def count_status(change_list):
+    pending = 0
+    completed = 0
+    for change in change_list:
+      if change["status"] == "Pending":
+        pending+= 1
+      elif change["status"] == "Completed":
+        completed+= 1
+    print("Pending changes " + str(pending) +"\n" + "Completed changes " + str(completed)) 
+
+
+#############
+
+# Change List #
 
 change_request =[]
 
@@ -11,17 +53,14 @@ change2 = {"change_id": "CHG0021","application": "google", "risk": "High",
 change3 = {"change_id": "CHG0041","application": "windows", "risk": "Low",
            "owner": "Kashif","status":"Pending"}
 
-change_request.append(change1)
-change_request.append(change2)
-change_request.append(change3)
+change_request = [change1,change2,change3]
 
-#printing all the change requests.
-print("all changes")
-pprint.pprint(change_request)
 
-##printing the applications names for all the changes.
-for items in change_request:
-    print(items["application"])
+#####################
+
+#     Main Program  #
+
+####################
 
 
 #updating risk of a change. Lets say change number 2
@@ -39,26 +78,19 @@ print(change_request)
 
 
 
-#printing only Low risk changes.
-print("SHows only Low risk changes")
+#displays all change requests.
+display_all_changes(change_request)
 
-for items  in change_request:
-    if items["risk"] == "Low":
-        print(items)
+#displays the applications for the changes
+display_application_names(change_request)
 
-#count the number of pending and complete changes.
+#print(change)
+#print(type(change))
+#display changes by owner name
+display_changes_by_owner(change_request,"Kashif")
 
-pending = 0
-completed = 0
-for items in change_request:
-    if items["status"] == "Pending":
-        pending+= 1
-    elif items["status"] == "Completed":
-        completed+= 1
+#display changes by risk
+display_changes_by_risk(change_request,"Low")   
 
-print("Pending changes " + str(pending) +"\n" + "Completed changes " + str(completed))  
-
-#CHanges where owner is Kashif
-for change in change_request:
-    if change["owner"] == "Kashif":
-     print(change)
+#display changes count by status
+count_status(change_request)
