@@ -1,0 +1,4 @@
+id,application,change_type,risk
+CR001,Application A,Configuration,High
+CR002,Application B,Deployment,Medium
+CR003,Application C,Database,Low
