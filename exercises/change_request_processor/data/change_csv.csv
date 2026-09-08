@@ -1,0 +1,10 @@
+Change ID,Application,Priority,Approved,Risk Score
+CR1001,PaymentApp,High,True,8
+CR1002,HRApp,True,5
+CR1003,FinanceApp,High,False,9
+CR1004,CustomerApp,Low,True,3
+CR1005,PaymentApp,High,maybe,7
+CR1006,FinanceApp,Medium,False,eight
+CR1007,HRApp,Low,TRUE,10
+CR1008,CoreApp,High,false,12
+CR1009,PaymentApp,Urgent,True,6
